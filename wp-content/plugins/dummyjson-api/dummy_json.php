@@ -3,7 +3,7 @@
 Plugin Name: DummyJSON API Plugin
 Description: Fetches data from DummyJSON API and displays it.
 Version: 1.0
-Author: AjixDev
+Author: Roy Aji
 */
 
 // Fetch API data from DummyJSON API with optional category filter
@@ -19,7 +19,7 @@ function shop_theme_fetch_api_data($category = null) {
 
     // Fetch products based on category filter
     if ($category) {
-        $url .= "?category=" . urlencode($category);
+        $url .= "/category/" . urlencode($category);
     }
 
     $response = wp_remote_get($url);
