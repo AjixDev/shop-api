@@ -1,0 +1,23 @@
+.site-main {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+#category-filter {
+    width: 100%;
+    margin: 3rem auto;
+    text-align: center;
+}
+
+.product {
+    list-style: none;
+    padding: 3px;
+    margin: 3rem auto;
+    border: 1px solid lightgray;
+    max-width: 50%;
+}
+
+.site-footer {
+    text-align: center;
+}

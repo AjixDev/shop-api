@@ -45,8 +45,10 @@ function generateProductHTML(products) {
       (product) => `
       <li class="product">
         <h3>${product.title}</h3>
+        <img src="${product.images[1]}"></img>
         <p>${product.description}</p>
         <p>Price: $${product.price}</p>
+        <q-btn align="between" class="btn-fixed-width" color="accent" label="Add to cart" icon="shopping_cart"></q-btn>
         <!-- Add more product details here -->
       </li>
     `
