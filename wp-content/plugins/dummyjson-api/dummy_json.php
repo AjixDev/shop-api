@@ -1,10 +1,17 @@
 <?php
-/*
-Plugin Name: DummyJSON API Plugin
-Description: Fetches data from DummyJSON API and displays it.
-Version: 1.0
-Author: Roy Aji
-*/
+
+// Enqueue scripts and styles in your plugin
+function enqueue_plugin_assets() {
+    // Enqueue your stylesheet
+    wp_enqueue_style('plugin-style', plugins_url('assets/style.css', __FILE__), array(), '1.0');
+
+    // Enqueue your script
+    wp_enqueue_script('plugin-script', plugins_url('assets/script.js', __FILE__), array('jquery'), '1.0', true);
+
+    // Localize script data for AJAX
+    wp_localize_script('plugin-script', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
+}
+add_action('wp_enqueue_scripts', 'enqueue_plugin_assets');
 
 // Fetch API data from DummyJSON API with optional category filter
 function shop_theme_fetch_api_data($category = null) {
@@ -29,6 +36,7 @@ function shop_theme_fetch_api_data($category = null) {
         return array('categories' => $categories, 'products' => $api_data);
     }
     return array('categories' => $categories, 'products' => array()); // Return categories and empty products array if API fetch fails
+
 }
 
 // Add AJAX handler for filtering products
