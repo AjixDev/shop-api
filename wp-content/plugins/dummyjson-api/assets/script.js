@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
               : data.products.products.filter(
                   (product) => product.category === selectedCategory
                 ); // Filtered products by category
-
           // Generate HTML for products
           const productsHTML = generateProductHTML(products);
 
@@ -43,15 +42,26 @@ function generateProductHTML(products) {
   return products
     .map(
       (product) => `
+
       <li class="product">
         <h3>${product.title}</h3>
         <img src="${product.images[1]}"></img>
         <p>${product.description}</p>
         <p>Price: $${product.price}</p>
-        <q-btn align="between" class="btn-fixed-width" color="accent" label="Add to cart" icon="shopping_cart"></q-btn>
+        <button id="cart" align="between" class="btn-fixed-width add-to-cart-btn" color="accent" label="Add to cart" icon="shopping_cart" data-product-id="${product.id}">Add to Cart</button>
+        <button onclick="goToProductPage(${product.id})">Product page</button>
+        console.log((${product.id});
         <!-- Add more product details here -->
       </li>
     `
     )
     .join("");
+}
+
+function goToProductPage(productId) {
+  // Construct the product page URL with the product ID as a query parameter
+  const productPageUrl = `http://localhost/shop-api/product/?product_id=${productId}`;
+
+  // Navigate to the product page
+  window.location.href = productPageUrl;
 }
