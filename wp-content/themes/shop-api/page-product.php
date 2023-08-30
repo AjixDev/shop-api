@@ -36,7 +36,7 @@ if (!empty($product_data)) {
     echo '<div class="product">';
     echo '<h2>' . esc_html($product_data['title']) . '</h2>';
     echo '<p>' . esc_html($product_data['description']) . '</p>';
-    // echo '<img src"' . esc_html($product_data['images'][1]) . '"></img>';
+    // echo '<img src"' . esc_html($product_data['images'][1]) . '"></img>';git 
     // Display other product details
     echo '</div>';
 } else {
